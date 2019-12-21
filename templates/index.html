@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+            <form action="/btn" method="POST">
+                <input id="input1" type="text" name="username" placeholder="名前" maxlength="100">
+                <input id="input1" type="text" name="usertext" placeholder="メッセージを入力" maxlength="100">
+                <input type="Submit" value="Submit">
+            </form>
+            <form action="/reloadbtn" method="POST">
+                <input type="Submit" Value="更新">
+            </form>
+<div>
+<div class="mess0">
+    {{mess0}}<br>
+    <p class="mess0_2">{{mess0_2}}</p>
+</div>
+<div class="mess1">
+    {{mess1}}<br>
+    <p class="mess_2">{{mess1_2}}</p>
+</div>
+<div class="mess2">
+    {{mess2}}<br>
+    <p class="mess_2">{{mess2_2}}</p>
+</div>
+<div class="mess3">
+    {{mess3}}<br>
+    <p class="mess_2">{{mess3_2}}</p>
+</div>
+<div class="mess4">
+    {{mess4}}<br>
+    <p class="mess_2">{{mess4_2}}</p>
+</div>
+<div class="mess5">
+    {{mess5}}<br>
+    <p class="mess_2">{{mess5_2}}</p>
+</div>
+<div class="mess6">
+    {{mess6}}<br>
+    <p class="mess_2">{{mess6_2}}</p>
+</div>
+<div class="mess7">
+    {{mess7}}<br>
+    <p class="mess_2">{{mess7_2}}</p>
+    </div>
+</div>
+<div class="mess8">
+    {{mess8}}<br>
+    <p class="mess_2">{{mess8_2}}</p>
+</div>
+<div class="mess9">
+    {{mess9}}<br>
+    <p class="mess_2">{{mess9_2}}</p>
+    </div>
+</div>
+
+<style>
+    .mess0{
+        margin : 30px ;
+        padding : 20px ;
+        border-bottom: solid 3px #87CEFA;
+        background-color : rgb(233, 233, 233) ;       
+    }
+    .mess0_2{
+        font-size: 20px;
+    }
+    .mess1{
+        margin : 30px ;
+        padding : 20px ;
+        border-bottom: solid 3px #87CEFA;
+        background-color : rgb(233, 233, 233) ;  
+    }
+    .mess1_2{
+        font-size: 20px;
+    }
+    .mess2{
+        margin : 30px ;
+        padding : 20px ;
+        border-bottom: solid 3px #87CEFA;
+        background-color : rgb(233, 233, 233) ;        
+    }
+    .mess2_2{
+        font-size: 20px;
+    }
+    .mess3{
+        margin : 30px ;
+        padding : 20px ;
+        border-bottom: solid 3px #87CEFA;
+        background-color : rgb(233, 233, 233) ;        
+    }
+    .mess3_2{
+        font-size: 20px;
+    }
+    .mess4{
+        margin : 30px ;
+        padding : 20px ;
+        border-bottom: solid 3px #87CEFA;
+        background-color : rgb(233, 233, 233) ;    
+    }.mess4_2{
+        font-size: 20px;
+    }
+    .mess5{
+        margin : 30px ;
+        padding : 20px ;
+        border-bottom: solid 3px #87CEFA;
+        background-color : rgb(233, 233, 233) ;        
+    }
+    .mess5_2{
+        font-size: 20px;
+    }
+    .mess6{
+        margin : 30px ;
+        padding : 20px ;
+        border-bottom: solid 3px #87CEFA;
+        background-color : rgb(233, 233, 233) ;        
+    }
+    .mess6_2{
+        font-size: 20px;
+    }
+    .mess7{
+        margin : 30px ;
+        padding : 20px ;
+        border-bottom: solid 3px #87CEFA;
+        background-color : rgb(233, 233, 233) ;       
+    }
+    .mess7_2{
+        font-size: 20px;
+    }
+    .mess8{
+        margin : 30px ;
+        padding : 20px ;
+        border-bottom: solid 3px #87CEFA;
+        background-color : rgb(233, 233, 233) ;        
+    }
+    .mess8_2{
+        font-size: 20px;
+    }
+    .mess9{
+        margin : 30px ;
+        padding : 20px ;
+        border-bottom: solid 3px #87CEFA;
+        background-color : rgb(233, 233, 233) ;        
+    }
+    .mess9_2{
+        font-size: 20px;
+    }
+    #input1:focus {
+        border: 2px solid #ff9900; 
+        z-index: 10;
+        outline: 0;
+    }
+    #input1{
+        width: 250px;
+        height: 10em;
+    }
+    
+</style>
+
+                <!-- <p id="inhtml"></p>
+                <script>
+                    const messstr = "{{messlist}}"
+                    const inhtmljs = document.getElementById("inhtml")
+                    inhtmljs.innerHTML = messstr
+                </script> -->
+                <script type="text/javascript">
+                    var if_ctrl = 0;
+                    var if_r = 0;
+                    function is_ctrl(pressKey){
+                            if(pressKey==17){ //ctrl
+                                    return 1;
+                            } else if (navigator.userAgent.match(/macintosh/i)){
+                                    if (pressKey == 224 && navigator.userAgent.match(/firefox/i)){
+                                            return 1;
+                                    } else if (pressKey == 91 || pressKey == 93){
+                                            return 1;
+                                    }
+                            }
+                            return 0;
+                    }
+                    function disable_reload(e){
+                            if(navigator.userAgent.match(/msie/i) && window.event){
+                                    window.event.returnValue=false;
+                                    window.event.keyCode=0
+                            } else
+                            if (navigator.userAgent.match(/macintosh/i) || e.preventDefault){
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                            }
+                            return false;
+                    }
+                    function catchkeydown(e){
+                            var pressKey;
+                            if (eval(e)){
+                                    pressKey=e.keyCode;
+                            } else {
+                                    pressKey=event.keyCode;
+                            }
+                            if(is_ctrl(pressKey)==1){ //ctrl
+                                    if_ctrl=1;
+                                    if(if_r==1){return disable_reload(e);}
+                            }
+                            if(pressKey==82){ //r
+                                    if_r=1;
+                                    if(if_ctrl==1){return disable_reload(e);}
+                            }
+                            if(pressKey==116){ //f5
+                                    if (navigator.userAgent.match(/safari/i) 
+                                            && !navigator.userAgent.match(/chrome/i)){
+                                            window.location="%_myname_%?n=%_n_%&i=%_i_%";
+                                            return true;
+                                    } else {
+                                            return disable_reload(e);
+                                    }
+                            }
+                    }
+                    function catchkeyup(e){
+                            var pressKey;
+                            if (eval(e)){
+                                    pressKey=e.keyCode;
+                            } else {
+                                    pressKey=event.keyCode;
+                            }
+                            if(is_ctrl(pressKey)==1){ //ctrl
+                                    if_ctrl=0;
+                                    if(if_r==1){return disable_reload(e);}
+                            }
+                            if(pressKey==82){ //r
+                                    if_r=0;
+                                    if(if_ctrl==1){return disable_reload(e);}
+                            }
+                            if(pressKey==116){ //f5
+                                    if (navigator.userAgent.match(/safari/i) 
+                                            && !navigator.userAgent.match(/chrome/i)){
+                                            window.location="%_myname_%?n=%_n_%&i=%_i_%";
+                                    } else {
+                                            return disable_reload(e);
+                                    }
+                            }
+                    }
+                    document.onkeydown = catchkeydown;
+                    document.onkeyup = catchkeyup;
+                    </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <form action="/btn" method="POST">
+            <input id="input1" type="text" name="usertext" cols="40" rows="8" placeholder="メッセージを入力" maxlength="100">
+            <input type="Submit" value="Submit">
+        </form>
+        <form action="/reloadbtn" method="POST">
+            <input type="Submit" Value="更新">
+        </form>
+        <style>
+            #input1{
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+        <p id="inhtml"></p>
+        <script>
+            const messstr = "{{messlist}}"
+            const inhtmljs = document.getElementById("inhtml")
+            inhtmljs.innerHTML = messstr
+            
+        </script>
+    </body>
+</html>
